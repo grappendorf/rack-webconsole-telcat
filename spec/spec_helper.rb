@@ -6,5 +6,5 @@ require 'minitest/autorun'
 require 'purdytest'
 require 'mocha'
 
-require 'rack-webconsole'
+require 'rack-webconsole-telcat'
 

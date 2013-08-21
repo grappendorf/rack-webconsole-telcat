@@ -6,8 +6,6 @@ Gem::Specification.new do |s|
   s.name        = "rack-webconsole-telcat"
   s.version     = Rack::Webconsole::VERSION
   s.authors     = ["Josep M. Bach", "Josep Jaume Rey", "Oriol Gual"]
-  s.email       = ["info@codegram.com"]
-  s.homepage    = "http://github.com/codegram/rack-webconsole"
   s.summary     = %q{Rack-based console inside your web applications}
   s.description = %q{Rack-based console inside your web applications}
 
@@ -28,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'yard'
   s.add_development_dependency 'bluecloth'
   s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
