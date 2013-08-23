@@ -25,7 +25,7 @@ module Rack
   # variables and giving a true IRB-esque experience.
   #
   class Webconsole
-    @@config = {:inject_jquery => false, :key_code => "96"}
+    @@config = {:inject_jquery => false, :key_code => "96", :exclude => []}
 
     class << self
       # Returns whether the Asset injecter must inject JQuery or not.
@@ -56,6 +56,20 @@ module Rack
         value = value.to_s unless value.is_a?(String)
         @@config[:key_code] = value
       end
+
+      # Returns a list of path regexps for which the webconsole should be disabled.
+      #
+      # @return [Array(Regexp)] exclusion path regexps.
+      def exclude
+        @@config[:exclude]
+      end
+
+      # Set a list of path regexps for which the webconsole should be disabled.
+      #
+      # @param [Array(Regexp)] exclusion path regexps.
+      def exclude=(exclude)
+        @@config[:exclude] = Array(exclude)
+      end
     end
 
     # Honor the Rack contract by saving the passed Rack application in an ivar.
@@ -75,6 +89,8 @@ module Rack
     def call(env)
       if env['PATH_INFO'] == '/webconsole'
         Repl.new(@app).call(env)
+      elsif @@config[:exclude].index { |r| env['PATH_INFO'] =~ r }
+        @app.call(env)
       else
         Assets.new(@app).call(env)
       end

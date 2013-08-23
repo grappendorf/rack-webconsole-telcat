@@ -33,7 +33,9 @@ module Rack
         end
 
         # Regenerate the security token
-        Webconsole::Repl.reset_token
+				# Not working with Rails 4. Subsequent requests also trigger this, so the stored token
+				# and the Repl.token don't match.
+        #Webconsole::Repl.reset_token
 
         # Expose the request object to the Repl
         Webconsole::Repl.request = Rack::Request.new(env)
