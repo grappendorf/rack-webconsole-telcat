@@ -8,3 +8,6 @@ coverage/*
 *.rbc
 tags
 *~
+.idea
+atlassian-ide-plugin.xml
+*.iml
