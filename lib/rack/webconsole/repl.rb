@@ -84,12 +84,7 @@ module Rack
       private
 
       def check_legitimate(req)
-<<<<<<< HEAD
-#        req.post? && !Repl.token.nil? && req.params['token'] == Repl.token
-        Rails.env.development?
-=======
         req.post? && !Repl.token.nil? && req.params['token'] == Repl.token
->>>>>>> 469298f419f8938f51c9ca476776f7a033f519f6
       end
     end
   end
