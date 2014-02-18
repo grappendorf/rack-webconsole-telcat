@@ -9,24 +9,10 @@ Gem::Specification.new do |s|
   s.summary     = %q{Rack-based console inside your web applications}
   s.description = %q{Rack-based console inside your web applications}
 
-  s.add_runtime_dependency 'rack'
-  s.add_runtime_dependency 'multi_json'
-  s.add_runtime_dependency 'ripl', '~> 0.5.1'
-  s.add_runtime_dependency 'ripl-multi_line', '~> 0.3.0'
-
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'purdytest'
-  s.add_development_dependency 'geminabox'
-  
-  # Since we can't have a git dependency in gemspec, we specify this
-  # dependency directly in the Gemfile. Once a new mocha version is released,
-  # we should uncomment this line and remove mocha from the Gemfile.
-  # s.add_development_dependency 'mocha'
-
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'bluecloth'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec'
+  s.add_runtime_dependency 'rack', '1.5.2'
+  s.add_runtime_dependency 'multi_json', '1.7.9'
+  s.add_runtime_dependency 'ripl', '0.7.0'
+  s.add_runtime_dependency 'ripl-multi_line', '0.3.1'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
